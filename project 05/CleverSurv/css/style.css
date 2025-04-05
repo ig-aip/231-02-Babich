@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #fff;
+    --second-bg-color: #E0E3ED;
+    --text-color: #000000;
+    --main-color: #414FF4;
+    --gray-color: #605D5D;
+    --buttom-pressed-color: #3B48D7;
+    --gray-buttom-hover-color: #EDEDED;
+    --gray-buttom-active-color: #E2E2E2;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    background: var(--bg-color);
+    perspective: 1000px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    Width: 100%;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 1px 5px var(--main-color);
+}
+
+.header.sticky {
+    background: var(--bg-color);
+}
+
+.logo{
+    position: relative;
+    font-size: 2.7rem;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: .5s;
+}
+
+.logo:hover{
+    transform: scale(1.2);
+}
+
+.navbar{
+    position: relative;
+}
+
+.navbar a{
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 3rem;
+}
+
+.navbar a:hover,
+.navbar a.active{
+    color: var(--main-color);
+}
+
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    padding: 0 7%;
+    background: #ffff;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-content{
+    z-index: 99;
+}
+
+.home-content h1{
+    max-width: 500px;
+    position: relative;
+    display: inline-block;
+    font-size: 37px     ;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.home-content p{
+    font-size: 12px;
+    max-width: 60rem;
+    position: relative;
+    margin: 15px 30px 40px 0;
+    letter-spacing: 1px;
+}
+
+.home-content h1 span{
+    color: var(--main-color);
+}
+
+.btn-box{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 34.5rem;
+    height: 5rem;
+}
+
+.btn-box .btn{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40rem;
+    height: 85%;
+    background: var(--main-color);
+    border-radius: 1.4rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn-box .btn:hover{
+    transform: scale(1.1);
+    background: var(--buttom-pressed-color);
+}
+
+
+.title{
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.progress{
+    width: 200px;
+    height: 12px;
+    border: 1px solid #ccc;
+    border-radius: .4rem;
+    position: relative;
+}
+
+.progress::before{
+    content: '';
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    background-color: #163355;
+    animation: progressLine .8s ease forwards;
+    border-radius: .4rem;
+}
+
+.home-slider .blockSlider{
+    display: flex;
+    max-width: 786px;
+    width: 65%;
+    width: 660px;
+    height: 388px;
+    border: .6rem solid var(--gray-color);
+    border-bottom: 1.2rem solid var(--gray-color);
+    border-radius: .9rem;
+    border-top-left-radius: .6rem;
+    border-top-right-radius: .6rem;
+    margin-left: 20px;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.fullArea{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.pointsAreaSize{
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 5%;
+}
+
+.point{
+    display: flex;
+    width: 12px;
+    height: 12px;
+    background: rgb(229, 229, 229);
+    border-radius: 100px;
+    cursor: pointer;
+    animation: pointCursorOff .5s ease forwards;
+}
+
+.point:hover{
+   animation: pointCursorOn .5s ease forwards;
+   /* background: var(--buttom-pressed-color); */
+}
+
+.imagesArea{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.imageSlider{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    animation-name: sliderAnimate;
+    animation-duration: 1s;
+}
+
+.activeImage{
+    background: var(--buttom-pressed-color);
+    display: flex;
+    /* border-radius: 20px; */
+}
+
+.btnsAreaSize{
+    position: absolute;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+}
+
+i.fa.fa-angle-left, i.fa.fa-angle-right{
+    color: var(--main-color);
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.blockArrow{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.blockArrow:hover{
+    background: var(--gray-buttom-hover-color);
+}
+
+.blockArrow:active{
+    background: var(--gray-buttom-active-color);
+}
+
+
+
+.animate-fade-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+.home-heading {
+    animation-delay: 0.3s;
+}
+
+.home-description {
+    animation-delay: 0.6s;
+}
+
+.home-button {
+    animation-delay: 0.9s;
+}
+
+.home-slider {
+    animation-delay: 1.2s;
+}
+
+/* .home-content {
+    overflow: hidden;
+} */
+
+.home-content > div {
+    margin-bottom: 30px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.loaded .home-content > div {
+    transform: translateY(0);
+    opacity: 1;
+} 
+
+.loaded .home-heading { transition-delay: 0.2s; }
+.loaded .home-description { transition-delay: 0.4s; }
+.loaded .home-button { transition-delay: 0.6s; }
+.loaded .home-slider { transition-delay: 0.8s; }
+
+
+
+@-webkit-keyframes sliderAnimate{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes delete {
+    form{
+        z-index: 1000;
+    }
+
+    to{
+        z-index: -1000;
+    }
+}
+
+@keyframes pointCursorOn{
+    from{
+        /* background: transparent ; */
+    }
+
+    to{
+        background: var(--buttom-pressed-color);
+    }
+}
+
+/* @keyframes pointCursorOff{
+    from{
+        background: var(--buttom-pressed-color);
+    }
+
+    to{
+        background: rgb(229, 229, 229);
+    }
+} */
+
+@keyframes loading{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        z-index: -100;
+    }
+}
+
+@keyframes progressLine{
+    from{
+        width: 0;
+    }
+
+    to{
+        width: calc(100% - 4px);
+    }
+}
+
+@keyframes leftBlock{
+    0% {
+        transform: translateX(0) scale(1) rotateY(0);
+    }
+    50% {
+        transform: translateX(0) scale(.9) rotateY(10deg);
+    }
+    100% {
+        transform: translateX(-110%) scale(.9) rotateY(10deg);
+    }
+} 
+
+@keyframes rightBlock{
+    0% {
+        transform: translateX(0) scale(1) rotateY(0);
+    }
+    50% {
+        transform: translateX(0) scale(.9) rotateY(-10deg);
+    }
+    100% {
+        transform: translateX(110%) scale(.9) rotateY(-10deg);
+    }
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
